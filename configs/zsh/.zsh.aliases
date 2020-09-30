@@ -20,7 +20,7 @@ alias tmux-start='tmux new-session -s'
 
 # Shortcuts
 alias ls='ls --color'
-alias l='ls -la'
+alias l='ls -l'
 alias la='ls -la'
 alias lr='ls -laR'
 alias saikidou='shutdown -r now'
@@ -33,3 +33,5 @@ alias d2a='dec2ascii'
 alias gist='git log --pretty=oneline --graph --color --decorate --all --abbrev-commit'
 alias gist2='git log --pretty=oneline --abbrev-commit --color --graph'
 alias flatten="find . -mindepth 3 -type f -exec mv -t . -i '{}' +"
+alias finished="tar -czvf kmcgee11.tgz"
+alias subcheck="tar -tvf kmcgee11.tgz"

@@ -35,7 +35,7 @@ DIR_CHAR=''
 RETURN_ZERO='✓'
 RETURN_NOT_ZERO='✘'
 GIT_PREFIX=''
-COMMAND_PREFIX='$'
+COMMAND_PREFIX='»'
 
 # Parametres
 SPLIT_DIRECTORY=0
@@ -165,23 +165,23 @@ time_prompt() {
 	fi
 }
 
-element_prompt() {
-	# Prompt for showing current time.
-
-	# Set the colour details
-	set_colour $HOST_FG $HOST_BG
-	
-	# Construct the Prompt
-	init_prompt
-	append_arrow
-	append_current_colour
-
-	if [[ $SINOBUZ -eq 1 ]]; then
-		append_prompt '%B '${ELEM[$DOW_P]}' %b'
-	else
-		append_prompt '%B '${ELEM[$(date +%u)]}' %b'
-	fi
-}
+#element_prompt() {
+#	# Prompt for showing current time.
+#
+#	# Set the colour details
+#	set_colour $HOST_FG $HOST_BG
+#	
+#	# Construct the Prompt
+#	init_prompt
+#	append_arrow
+#	append_current_colour
+#
+#	if [[ $SINOBUZ -eq 1 ]]; then
+#		append_prompt '%B '${ELEM[$DOW_P]}' %b'
+#	else
+#		append_prompt '%B '${ELEM[$(date +%u)]}' %b'
+#	fi
+#}
 
 return_prompt() {
 	# Prompt for showing the return value of the previous command.
@@ -234,8 +234,9 @@ path_prompt() {
 	if [[ $SPLIT_DIRECTORY -ne 0 ]]; then
 		CUR_DIR=${${PWD:s/\///}:gs/\//\ ${DIR_CHAR}\ /}
 		append_prompt '%B '$CUR_DIR'  %b'
+#		append_prompt '%B %1d %b'
 	else
-		append_prompt '%B %~ %b'
+		append_prompt '%B %1~ %b'
 	fi
 }
 
@@ -285,7 +286,7 @@ precmd() {
 	# Determine the order of the "modules"
 	PROMPT_ORDER=(
 		'time'
-		'element'
+#		'element'
 		'return'
 		'user'
 		'git'
